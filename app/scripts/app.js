@@ -15,12 +15,6 @@ var lineChartApp = angular.module('lineChartApp', ['nvd3ChartDirectives']);
         // 	}
         // };
 
-        var colorArray = ["#ffa500', '#c80032', '#0000ff', '#6464ff"];
-        $scope.colorFunction = function () {
-        	return function (d, i) {
-        		return colorArray[i];
-        	}
-        }
 		var data = [
 		  {
 			date: '2013-01-01',
@@ -66,16 +60,29 @@ var lineChartApp = angular.module('lineChartApp', ['nvd3ChartDirectives']);
 		$scope.exampleData = d3.keys(data[0]).filter(function(key) { return key !== "date"}).map(function(key){
 		  return {
 		    key: key,
-		    values: data.map(function(d){ return d[key]; })
+		    values: data.map(function(d,i){ return [d[key],i]; })
 		  };
 		});
-		$scope.yFunction = function(){
-			return function(d){
-				return d[1];
-			};
-		}
 		$scope.xFunction = function(){
 			return function(d){
+				return d[1];
+			};	
+		}
+		$scope.yFunction = function(){
+			return function(d){
 				return d[0];
-			};	}
+			};
+		}
+		// $scope.yAxisFunction = function() {
+		// 	return function(d){
+		// 		return d[]
+		// 	}
+		// }
+
+        var colorArray = ["#ffa500', '#c80032', '#0000ff', '#6464ff"];
+        $scope.colorFunction = function () {
+        	return function (d, i) {
+        		return colorArray[i];
+        	}
+        }
 }

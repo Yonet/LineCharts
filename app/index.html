@@ -17,23 +17,37 @@
     <!-- endbuild -->
     <!-- build:css({.tmp,app}) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
+    <script src="bower_components/angular/angular.js"></script>
+
+
+    <script src="bower_components/d3/d3.js"></script>
+    <script src="bower_components/nvd3/nv.d3.js"></script>
+    <script src="bower_components/angularjs-nvd3-directives/dist/angularjs-nvd3-directives.js"></script>
+    <!-- endbower -->
+
+    <script src="scripts/app.js"></script>
     <!-- endbuild -->
   </head>
   <body ng-app="lineChartApp">
     <div ng-controller="ExampleCtrl">
-    <nvd3-cumulative-line-chart
+    <nvd3-line-chart
         data="exampleData"
+        id="exampleId"
+        height="400"
         showXAxis="true"
         showYAxis="true"
         tooltips="true"
-        height="300"
-        showLegend="true"
-        showControls="true"
         interactive="true"
         x="xFunction()"
-        y="yFunction()">
+        y="yFunction()"
+        xaxisticks="4"
+        yaxisticks="5"
+        showLegend="true"
+        isArea="false"
+        yaxisrange:"yRangeFunction()"
+        margin="{left:50,top:50,bottom:50,right:50}">
         <svg></svg>
-    </nvd3-cumulative-line-chart>
+    </nvd3-line-chart>
 
 </div>
     <!--[if lt IE 7]>
@@ -61,18 +75,7 @@
 
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-resource/angular-resource.js"></script>
-    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="bower_components/d3/d3.js"></script>
-    <script src="bower_components/nvd3/nv.d3.js"></script>
-    <script src="bower_components/moment/moment.js"></script>
-    <script src="bower_components/angularjs-nvd3-directives/dist/angularjs-nvd3-directives.js"></script>
-    <!-- endbower -->
 
-    <script src="scripts/app.js"></script>
    
     <!-- endbuild -->
 </body>
