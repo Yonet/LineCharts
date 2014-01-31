@@ -57,21 +57,28 @@ var lineChartApp = angular.module('lineChartApp', ['nvd3ChartDirectives']);
 			optoutRate: 2.4
 		  }
 		];
+		var dates = data.map(function(d) { return d["date"];})
+
 		$scope.exampleData = d3.keys(data[0]).filter(function(key) { return key !== "date"}).map(function(key){
 		  return {
 		    key: key,
-		    values: data.map(function(d,i){ return [d[key],i]; })
+		    values: data.map(function(d,i){ return [d[key],dates[i]]; })
 		  };
 		});
 		$scope.xFunction = function(){
-			return function(d){
-				return d[1];
+			return function(d, i){
+				return i ;
 			};	
 		}
 		$scope.yFunction = function(){
 			return function(d){
 				return d[0];
 			};
+		}
+		$scope.xAxisTickFormatFunction = function(){
+			return function(d,i){
+				return dates[i];
+			}
 		}
 		// $scope.yAxisFunction = function() {
 		// 	return function(d){
