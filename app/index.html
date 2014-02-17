@@ -12,7 +12,7 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/nvd3/src/nv.d3.css" />
+    <!-- <link rel="stylesheet" href="bower_components/nvd3/src/nv.d3.css" /> -->
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,app}) styles/main.css -->
@@ -21,36 +21,26 @@
 
 
     <script src="bower_components/d3/d3.js"></script>
-    <script src="bower_components/nvd3/nv.d3.js"></script>
-    <script src="bower_components/angularjs-nvd3-directives/dist/angularjs-nvd3-directives.js"></script>
+<!--     // <script src="bower_components/nvd3/nv.d3.js"></script>
+    // <script src="bower_components/angularjs-nvd3-directives/dist/angularjs-nvd3-directives.js"></script> -->
     <!-- endbower -->
 
     <script src="scripts/app.js"></script>
     <!-- endbuild -->
   </head>
-  <body ng-app="lineChartApp">
-    <div ng-controller="ExampleCtrl">
-    <nvd3-line-chart
-        data="exampleData"
-        id="exampleId"
-        height="400"
-        showXAxis="true"
-        showYAxis="true"
-        tooltips="true"
-        interactive="true"
-        x="xFunction()"
-        y="yFunction()"
-        xaxisticks="2"
-        yaxisticks="5"
-        xAxisTickFormat="xAxisTickFormatFunction()"
-        showLegend="true"
-        isArea="false"
-        yaxisrange:"yRangeFunction()"
-        margin="{left:50,top:50,bottom:50,right:50}">
-        <svg></svg>
-    </nvd3-line-chart>
+  <div ng-app="charts" id="chartContainer">
+    <div ng-controller="mainCtrl">
+        <line-chart
+            data='data'
+            height='200'
+            width='800'
+            >
+        </line-chart>
+        <!--<bar-chart height="300" data="data" hovered="hovered(args)></bar-chart>-->
+    </div>
 
-</div>
+
+</div> 
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
