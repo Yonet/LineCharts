@@ -1,95 +1,149 @@
-/* Space out content a bit */
-body {
-  font: 10px sans-serif;
+/********************
+ * TOOLTIP CSS
+ */
+
+.nvtooltip {
+  position: absolute;
+  background-color: rgba(255,255,255,1);
+  padding: 10px;
+  border: 1px solid #ddd;
+
+  font-family: Arial;
+  font-size: 13px;
+
+  transition: opacity 500ms linear;
+  -moz-transition: opacity 500ms linear;
+  -webkit-transition: opacity 500ms linear;
+
+  transition-delay: 500ms
+  -moz-transition-delay: 500ms;
+  -webkit-transition-delay: 500ms;
+
+  -moz-box-shadow: 4px 4px 12px rgba(0,0,0,.5);
+  -webkit-box-shadow: 4px 4px 12px rgba(0,0,0,.5);
+  box-shadow: 4px 4px 12px rgba(0,0,0,.5);
+
+  -moz-border-radius: 15px;
+  border-radius: 15px;
 }
 
-.axis path,
-.axis line {
+.nvtooltip h3 {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.nvtooltip p {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.nvtooltip span {
+  display: inline-block;
+  margin: 2px 0;
+}
+
+
+
+
+
+/**********
+*  General SVG CSS
+*/
+
+
+text {
+  font: 12px sans-serif;
+}
+
+
+
+/**********
+*  Legend
+*/
+
+.legend .series {
+  cursor: pointer;
+}
+
+.legend circle {
+  stroke-width: 2px;
+}
+
+.legend .disabled circle {
+  fill-opacity: 0;
+}
+
+
+
+/**********
+*  Axes
+*/
+
+.axis path {
   fill: none;
   stroke: #000;
+  stroke-opacity: .75;
   shape-rendering: crispEdges;
 }
 
-.x.axis path {
-  display: none;
+.axis path.domain {
+  stroke-opacity: .75;
 }
 
-.line {
+.axis line {
   fill: none;
-  stroke: steelblue;
+  stroke: #000;
+  stroke-opacity: .25;
+  shape-rendering: crispEdges;
+}
+
+.axis line.zero {
+  stroke-opacity: .75;
+}
+
+
+
+/**********
+*  Line chart
+*/
+
+.point-paths path {
+  /*
+  fill: #eee;
+  stroke: #aaa;
+  */
+  stroke-opacity: 0;
+  fill-opacity: 0;
+}
+
+
+.lines path {
+  fill: none;
   stroke-width: 1.5px;
+  stroke-linecap: round;
+
+  transition: stroke-width 250ms linear;
+  -moz-transition: stroke-width 250ms linear;
+  -webkit-transition: stroke-width 250ms linear;
+
+  transition-delay: 250ms
+  -moz-transition-delay: 250ms;
+  -webkit-transition-delay: 250ms;
 }
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-  padding-left: 15px;
-  padding-right: 15px;
+.line.hover path {
+  stroke-width: 6px;
 }
 
-/* Custom page header */
-.header {
-  border-bottom: 1px solid #e5e5e5;
-}
-/* Make the masthead heading the same height as the navigation */
-.header h3 {
-  margin-top: 0;
-  margin-bottom: 0;
-  line-height: 40px;
-  padding-bottom: 19px;
+.lines .point {
+  transition: stroke-width 250ms linear;
+  -moz-transition: stroke-width 250ms linear;
+  -webkit-transition: stroke-width 250ms linear;
 }
 
-/* Custom page footer */
-.footer {
-  padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
-}
-
-/* Customize container */
-@media (min-width: 768px) {
-  .container {
-    max-width: 730px;
-  }
-}
-.container-narrow > hr {
-  margin: 30px 0;
-}
-
-/* Main marketing message and sign up button */
-.jumbotron {
-  text-align: center;
-  border-bottom: 1px solid #e5e5e5;
-}
-.jumbotron .btn {
-  font-size: 21px;
-  padding: 14px 24px;
-}
-
-/* Supporting marketing content */
-.marketing {
-  margin: 40px 0;
-}
-.marketing p + h4 {
-  margin-top: 28px;
-}
-
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-  /* Remove the padding we set earlier */
-  .header,
-  .marketing,
-  .footer {
-    padding-left: 0;
-    padding-right: 0;
-  }
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
-  }
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0;
-  }
+.lines .point.hover {
+  stroke-width: 20px;
+  stroke-opacity: .5;
 }
